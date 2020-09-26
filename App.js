@@ -4,13 +4,20 @@ import { Button, StyleSheet, Image, Text, TextInput, View } from "react-native";
 
 export default function App() {
   //1.First we grab the value the user enters with state
-  const [addItem, setAddItem] = React.useState("");
+  const [addItem, setAddItem] = useState("");
   //2. Second, we store the values the user enters, that is an [] initialState
+  const [storeItem, setStoreItem] = useState([]);
+
+  const addList = () => {
+    setStoreItem([...storeItem, addItem]);
+  };
+  console.log("testing storeItem", storeItem); //logging it outside prevents
+  // entries to be added twice to the array!
 
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.text}>Add your Kermit List and get on track!</Text>
+        <Text style={styles.text}>Add a Kermit List and get on track!</Text>
       </View>
       <Image style={styles.cat} source={require("./assets/cat.jpeg")} />
       <TextInput
@@ -22,9 +29,9 @@ export default function App() {
 
       <Button
         title="Submit"
-        onPress={() => console.log("a click")}
+        onPress={addList}
         color="#564890"
-        accessibilityLabel="Learn more about cats by adopting a virtual one!"
+        accessibilityLabel="App to organize your todos!"
       />
       <StatusBar style="auto" />
     </View>
