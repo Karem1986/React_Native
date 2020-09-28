@@ -25,14 +25,18 @@ export default function App() {
   return (
     <View>
       <Header title="Kermit APP" />
+
       <View style={styles.container}>
-        <View>
-          <Text style={styles.text}>Add your skills and get hired!</Text>
-        </View>
         <Image style={styles.cat} source={require("./assets/cat.jpeg")} />
+        <View>
+          <Text style={styles.text}>
+            Get to know other developers and grow your network with Kermit
+          </Text>
+        </View>
+
         <TextInput
           style={styles.textInput}
-          placeholder="Add your item"
+          placeholder="Add your skill here"
           onChangeText={(text) => setAddItem(text)}
           value={addItem}
         ></TextInput>
@@ -41,7 +45,7 @@ export default function App() {
           title="Submit"
           onPress={addList}
           color="green"
-          accessibilityLabel="App to organize your todos!"
+          accessibilityLabel="App to connect with other web developers"
         />
         <StatusBar style="auto" />
         <ScrollView style={styles.scrollBar}>
@@ -69,6 +73,8 @@ const styles = StyleSheet.create({
   cat: {
     width: 80,
     height: 90,
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
     padding: 20,
