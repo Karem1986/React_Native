@@ -1,6 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Button, StyleSheet, Image, Text, TextInput, View } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Image,
+  Text,
+  TextInput,
+  View,
+  ScrollView,
+} from "react-native";
 
 export default function App() {
   //1.First we grab the value the user enters with state
@@ -10,14 +18,13 @@ export default function App() {
 
   const addList = () => {
     setStoreItem([...storeItem, addItem]);
+    console.log("testing storeItem", storeItem);
   };
-  console.log("testing storeItem", storeItem); //logging it outside prevents
-  // entries to be added twice to the array!
 
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.text}>Add a Kermit List and get on track!</Text>
+        <Text style={styles.text}>Add a Kermit List.Get on track!</Text>
       </View>
       <Image style={styles.cat} source={require("./assets/cat.jpeg")} />
       <TextInput
@@ -34,6 +41,16 @@ export default function App() {
         accessibilityLabel="App to organize your todos!"
       />
       <StatusBar style="auto" />
+      <ScrollView style={styles.scrollBar}>
+        {storeItem.map((todo, key) => {
+          return (
+            <Text key={key} style={styles.showItems}>
+              {" "}
+              {todo}{" "}
+            </Text>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 }
@@ -53,6 +70,7 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 15,
     fontWeight: "bold",
+    marginTop: 20,
   },
   textInput: {
     padding: 10,
@@ -61,5 +79,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 2,
     borderColor: "gray",
+  },
+  showItems: {
+    padding: 10,
+    marginTop: 20,
+    backgroundColor: "#f6546a",
+    textAlign: "center",
+  },
+  scrollBar: {
+    width: "auto",
   },
 });
