@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+import Header from "././src/components/Header";
 import {
   Button,
   StyleSheet,
@@ -22,42 +23,45 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.text}>Add a Kermit List.Get on track!</Text>
-      </View>
-      <Image style={styles.cat} source={require("./assets/cat.jpeg")} />
-      <TextInput
-        style={styles.textInput}
-        placeholder="Add your item"
-        onChangeText={(text) => setAddItem(text)}
-        value={addItem}
-      ></TextInput>
+    <View>
+      <Header title="Kermit APP" />
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.text}>Add your skills and get hired!</Text>
+        </View>
+        <Image style={styles.cat} source={require("./assets/cat.jpeg")} />
+        <TextInput
+          style={styles.textInput}
+          placeholder="Add your item"
+          onChangeText={(text) => setAddItem(text)}
+          value={addItem}
+        ></TextInput>
 
-      <Button
-        title="Submit"
-        onPress={addList}
-        color="#564890"
-        accessibilityLabel="App to organize your todos!"
-      />
-      <StatusBar style="auto" />
-      <ScrollView style={styles.scrollBar}>
-        {storeItem.map((todo, key) => {
-          return (
-            <Text key={key} style={styles.showItems}>
-              {" "}
-              {todo}{" "}
-            </Text>
-          );
-        })}
-      </ScrollView>
+        <Button
+          title="Submit"
+          onPress={addList}
+          color="green"
+          accessibilityLabel="App to organize your todos!"
+        />
+        <StatusBar style="auto" />
+        <ScrollView style={styles.scrollBar}>
+          {storeItem.map((todo, key) => {
+            return (
+              <Text key={key} style={styles.showItems}>
+                {" "}
+                {todo}{" "}
+              </Text>
+            );
+          })}
+        </ScrollView>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    padding: 30,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -81,10 +85,11 @@ const styles = StyleSheet.create({
     borderColor: "gray",
   },
   showItems: {
-    padding: 10,
+    padding: 25,
     marginTop: 20,
-    backgroundColor: "#f6546a",
+    backgroundColor: "#000000",
     textAlign: "center",
+    color: "white",
   },
   scrollBar: {
     width: "auto",
