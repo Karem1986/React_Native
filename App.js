@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListScreen from "./src/screens/ListScreen";
+import Register from "./src/screens/Register";
 
 export default function App() {
   //1.First we grab the value the user enters with state
@@ -12,5 +12,5 @@ export default function App() {
     console.log("testing storeItem", storeItem);
   };
 
-  return <ListScreen />;
+  return <Register />;
 }
