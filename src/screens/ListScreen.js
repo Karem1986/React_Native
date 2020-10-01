@@ -27,31 +27,32 @@ export default function ListScreen() {
 
       <View style={styles.container}>
         <Image style={styles.cat} source={require("../../assets/cat.jpeg")} />
+        <View>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Enter your email"
+            onChangeText={(text) => setAddItem(text)}
+            value={addItem}
+          ></TextInput>
 
-        <TextInput
-          style={styles.textInput}
-          placeholder="Add your skill here"
-          onChangeText={(text) => setAddItem(text)}
-          value={addItem}
-        ></TextInput>
-
-        <Button
-          title="Submit"
-          onPress={addList}
-          color="green"
-          accessibilityLabel="App to connect with other web developers"
-        />
-        <StatusBar style="auto" />
-        <ScrollView style={styles.scrollBar}>
-          {storeItem.map((todo, key) => {
-            return (
-              <Text key={key} style={styles.showItems}>
-                {" "}
-                {todo}{" "}
-              </Text>
-            );
-          })}
-        </ScrollView>
+          <Button
+            title="Register"
+            onPress={addList}
+            color="grey"
+            accessibilityLabel="App for web developers"
+          />
+          <StatusBar style="auto" />
+          <ScrollView style={styles.scrollBar}>
+            {storeItem.map((todo, key) => {
+              return (
+                <Text key={key} style={styles.showItems}>
+                  {" "}
+                  {todo}{" "}
+                </Text>
+              );
+            })}
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
@@ -59,16 +60,18 @@ export default function ListScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
-    backgroundColor: "#fff",
+    padding: 40,
+    backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
   },
   cat: {
-    width: 80,
-    height: 90,
+    padding: 10,
+    marginTop: 130,
     alignItems: "center",
     justifyContent: "center",
+    width: 120,
+    height: 160,
   },
   text: {
     padding: 20,
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   textInput: {
-    padding: 10,
+    padding: 15,
     marginTop: 10,
     borderColor: "#345678",
     marginBottom: 10,
@@ -93,5 +96,10 @@ const styles = StyleSheet.create({
   },
   scrollBar: {
     width: "auto",
+  },
+  ButtonResources: {
+    margin: 20,
+    padding: 20,
+    backgroundColor: "#f08a5d",
   },
 });
