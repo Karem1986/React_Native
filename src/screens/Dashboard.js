@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-export default function DetailsList() {
+export default function Dashboard() {
   return (
     <View>
-      <Text>Resource's detail page</Text>
+      <Text>Dashboard</Text>
     </View>
   );
 }

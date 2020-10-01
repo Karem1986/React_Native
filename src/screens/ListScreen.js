@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import Header from "../components/Header";
 
-export default function ListScreen() {
+export default function ListScreen(props) {
   //1.First we grab the value the user enters with state
   const [addItem, setAddItem] = useState("");
   //2. Second, we store the values the user enters, that is an [] initialState
@@ -23,8 +23,6 @@ export default function ListScreen() {
   };
   return (
     <View>
-      <Header title="Kermit APP-Developer's best friend" />
-
       <View style={styles.container}>
         <Image style={styles.cat} source={require("../../assets/cat.jpeg")} />
         <View>
@@ -36,10 +34,14 @@ export default function ListScreen() {
           ></TextInput>
 
           <Button
-            title="Register"
+            title="Register here"
             onPress={addList}
             color="grey"
             accessibilityLabel="App for web developers"
+          />
+          <Button
+            title=" Back to Homepage"
+            onPress={() => props.navigation.navigate("toHomepage")}
           />
           <StatusBar style="auto" />
           <ScrollView style={styles.scrollBar}>
@@ -60,14 +62,14 @@ export default function ListScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 40,
+    padding: 70,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
   },
   cat: {
-    padding: 10,
-    marginTop: 130,
+    padding: 20,
+    marginTop: 150,
     alignItems: "center",
     justifyContent: "center",
     width: 120,
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   textInput: {
-    padding: 15,
+    padding: 20,
     marginTop: 10,
     borderColor: "#345678",
     marginBottom: 10,
@@ -96,10 +98,5 @@ const styles = StyleSheet.create({
   },
   scrollBar: {
     width: "auto",
-  },
-  ButtonResources: {
-    margin: 20,
-    padding: 20,
-    backgroundColor: "#f08a5d",
   },
 });

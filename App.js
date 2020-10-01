@@ -1,16 +1,10 @@
+import "react-native-gesture-handler";
 import React, { useState } from "react";
-import Register from "./src/screens/Register";
+import { StyleSheet, View, Text } from "react-native";
+import AppNavigator from "./src/navigation/AppNavigator";
+import ListScreen from "./src/screens/ListScreen";
 
+//NOT using AppNavigator as I dont want to render two pages at the same time.
 export default function App() {
-  //1.First we grab the value the user enters with state
-  const [addItem, setAddItem] = useState("");
-  //2. Second, we store the values the user enters, that is an [] initialState
-  const [storeItem, setStoreItem] = useState([]);
-
-  const addList = () => {
-    setStoreItem([...storeItem, addItem]);
-    console.log("testing storeItem", storeItem);
-  };
-
-  return <Register />;
+  return <AppNavigator />;
 }
