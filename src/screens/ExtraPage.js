@@ -6,7 +6,7 @@ export default function TopScreen() {
   //Need to design homepage
   return (
     <View style={styles.container}>
-      <Text>Homepage</Text>
+      <Text>Extra page</Text>
     </View>
   );
 }
