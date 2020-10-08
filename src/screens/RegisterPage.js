@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import Header from "../components/Header";
 
-export default function RegisterPage(props) {
+export default function RegisterPage() {
   //1.First we grab the value the user enters with state
   const [addItem, setAddItem] = useState("");
   //2. Second, we store the values the user enters, that is an [] initialState
