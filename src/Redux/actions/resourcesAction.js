@@ -8,13 +8,12 @@ export function displayArticles(articles) {
   }
 }
 
-
+//Following the getTableswithReservation example
 export async function fetchArticles(dispatch, getState) {
-  console.log('TEST THUNK')
- 
+  
       const response = await axios.get('http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=0d97d0fa44394ed0a197fb149dd40002')
       const result = response.data
-      console.log('testing with axios the result', result)
+     
   
   dispatch(displayArticles(result))
   
