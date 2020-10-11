@@ -9,6 +9,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -47,11 +48,7 @@ function RegisterNavigator() {
         component={RegisterPage}
         options={{ title: "Kermit App" }}
       />
-      <Stack.Screen
-        name="Extra page"
-        component={ExtraPage}
-        options={{ title: "just an extra page" }}
-      />
+    
     </Stack.Navigator>
   );
 }
@@ -87,6 +84,9 @@ function TabNavigator() {
           if (route.name === "Register") {
             iconName = "sign-in";
             return <FontAwesome name="sign-in" size={24} color="black" />;
+          } else if (route.name === "Resources") {
+            iconName = "cat";
+            return <MaterialCommunityIcons name="cat" size={24} color="black" />;
           } else if (route.name == "Dashboard") {
             iconName = "people";
             return <MaterialIcons name="people" size={24} color="black" />;
@@ -96,6 +96,7 @@ function TabNavigator() {
     >
       <Tab.Screen name="Register" component={RegisterNavigator} />
       <Tab.Screen name="Dashboard" component={DashboardNavigator} />
+      <Tab.Screen name="Resources" component={ExtraPage} />
     </Tab.Navigator>
   );
 }

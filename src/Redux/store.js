@@ -5,7 +5,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import resourcesReducer from "./reducers/resourcesReducer";
 
 const rootReducer = combineReducers({
-  resource: resourcesReducer,
+  news: resourcesReducer,
 });
 
 const middleware = composeWithDevTools(applyMiddleware(thunk));

@@ -1,9 +1,18 @@
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
+//RESOURCES PAGE TEST 
+import React, { useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
+import {useDispatch, useSelector} from "react-redux"
+import {fetchArticles} from '../Redux/actions/resourcesAction'
 
-export default function TopScreen() {
-  //Need to design homepage
+export default function ExtraPage() {
+  const dispatch = useDispatch()
+
+useEffect(() => {
+  dispatch(fetchArticles)
+}, [dispatch])
+
+ const articles = useSelector(state => state.news.articles)
+console.log('articles', articles)
   return (
     <View style={styles.container}>
       <Text>Extra page</Text>
