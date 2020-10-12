@@ -13,14 +13,19 @@ useEffect(() => {
 
  const articles = useSelector(state => state.news.articles)
 console.log('articles', articles)
-const Item = ({ title, content, author}) => (
+
+const Item = ({ title: title, content: content, author: author, publishedAt:publishedAt}) => (
   <View>
-    <Text style={styles.author}> - {author}</Text>
     <Text style={styles.title}>{title}</Text>
 <Text style={styles.content}>{content}</Text>
+<Text style={styles.author}> By {author}</Text>
+<Text style={styles.published}> Date: {publishedAt}</Text>
 
   </View>
+
 );
+
+
 
   return (
    
@@ -34,6 +39,7 @@ const Item = ({ title, content, author}) => (
            <Item title={item.title}
            content={item.content}
            author={item.author}
+           publishedAt={item.publishedAt.slice(0,10)}
        
             />
           )}
@@ -63,15 +69,21 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     color: "#19d3da",
+    paddingTop: 10,
     paddingBottom: 20
   },
   author: {
-    paddingTop: 25,
-    paddingBottom: 15,
+    paddingTop: 17,
     fontFamily: 'monospace',
     color: "#ee6f57",
+    textAlign: "right"
   
 
+  },
+  published: {
+   color: "white",
+    paddingBottom: 20,
+    textAlign: "right"
   },
   content: {
     color: "#f6f5f5",
