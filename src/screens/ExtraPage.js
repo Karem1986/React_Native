@@ -16,7 +16,7 @@ console.log('articles', articles)
 
 const Item = ({ title: title, content: content, author: author, publishedAt:publishedAt}) => (
   <View>
-    <Text style={styles.title}>{title}</Text>
+    <Text style={styles.title}>{title.length > 20 ? title.slice(0,20) : title}</Text>
 <Text style={styles.content}>{content}</Text>
 <Text style={styles.author}> By {author}</Text>
 <Text style={styles.published}> Date: {publishedAt}</Text>
