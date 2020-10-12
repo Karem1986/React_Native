@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet, View, Text, FlatList, StatusBar} from "react-native";
 import {useDispatch, useSelector} from "react-redux"
 import {fetchArticles} from '../Redux/actions/resourcesAction'
-
+import Header from "../components/Header"
 export default function ExtraPage() {
   const dispatch = useDispatch()
 
@@ -21,20 +21,12 @@ const Item = ({ title, content, author}) => (
 
   </View>
 );
-const App = () => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title}
-    author={item.author}
-    content={item.content}
-    description={item.description}
-     />
-  );
-}
+
   return (
-      
    
           <SafeAreaView style={styles.articlesStyle}>
-           
+            <Header 
+            title="Articles"/>
               <FlatList 
           data={articles.articles} 
           keyExtractor={item => item.url}
