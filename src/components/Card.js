@@ -2,38 +2,43 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
 import { useDispatch } from 'react-redux'
+import {useSelector} from 'react-redux';
+
 import  * as resourcesAction from "../Redux/actions/resourcesAction"
 const Card = props => {
 
   const dispatch = useDispatch()
+  const isFav = useSelector(state => state.news.favorites.some(article => article.url === props.url));
 
     return(
-        <TouchableOpacity onPress={() => props.navigation.navigate('NewsDetail')}>
-            <View style={styles.card}>
-                <View style={styles.imageWrapper}>
-                    <Image 
-                        // source={require('../../assets/news-demo.jpg')} 
-                        source={{uri: 'https://user-images.githubusercontent.com/16916934/27370350-c82d1c44-5679-11e7-9147-2e8adeb4c515.png'}}
-                        style={styles.image}
-                    />
-                </View>
-                <View style={styles.titleWrapper}>
-                    <Text style={styles.title}>Dummy Title</Text>
-                    <MaterialIcons
-                     name="favorite-border" 
-                     color="#72bcd4" 
-                     size={24} 
-                     onPress={() => {
-                       //dispatch here the action 
-                       dispatch(resourcesAction.toggleFavorites(props.url))
-                     } }
-                     />
-                </View>
-                <View style={styles.descriptionWrapper}>
-                    <Text style={styles.description}>This is a dummy description</Text>
-                </View>
-            </View>
-        </TouchableOpacity>
+      <TouchableOpacity onPress={() => props.navigation.navigate('NewsDetail')}>
+      <View style={styles.card}>
+          <View style={styles.imageWrapper}>
+              <Image 
+                  // source={require('../../assets/news-demo.jpg')} 
+                  source={{uri: props.image}}
+                  style={styles.image}
+              />
+          </View>
+          <View style={styles.titleWrapper}>
+              <Text style={styles.title}>
+                  {props.title.length > 22 ? props.title.slice(0, 22) + '...' : props.title}
+              </Text>
+              <MaterialIcons 
+                  name={isFav ? 'favorite': 'favorite-border'} 
+                  color="#72bcd4" size={24} 
+                  onPress={() => {
+                      dispatch(resourcesAction.toggleFavorites(props.url))
+                  }}
+              />
+          </View>
+          <View style={styles.descriptionWrapper}>
+              <Text style={styles.description}>
+                  {props.description.length > 100 ? props.description.slice(0, 100) + '...' : props.description}
+              </Text>
+          </View>
+      </View>
+  </TouchableOpacity>
     );
 }
 

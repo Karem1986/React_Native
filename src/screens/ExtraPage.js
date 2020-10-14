@@ -1,10 +1,12 @@
-//RESOURCES PAGE TEST 
+//All Articles list page
 import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet, View, Text, FlatList, StatusBar} from "react-native";
 import {useDispatch, useSelector} from "react-redux"
 import {fetchArticles} from '../Redux/actions/resourcesAction'
 import Header from "../components/Header"
-export default function ExtraPage() {
+import Card from "../components/Card"
+
+export default function ExtraPage(props) {
   const dispatch = useDispatch()
 
 useEffect(() => {
@@ -12,18 +14,8 @@ useEffect(() => {
 }, [dispatch])
 
  const articles = useSelector(state => state.news.articles)
-console.log('articles', articles)
-
-const Item = ({ title: title, content: content, author: author, publishedAt:publishedAt, url: url}) => (
-  <View>
-    <Text style={styles.title}>{title.length > 20 ? title.slice(0,20) : title}</Text>
-<Text style={styles.content}>{content}</Text>
-<Text style={styles.author}> By {author}</Text>
-<Text style={styles.published}> Date: {publishedAt}</Text>
-
-  </View>
-
-);
+  console.log('articles', articles)
+ 
 
   return (
    
@@ -34,13 +26,13 @@ const Item = ({ title: title, content: content, author: author, publishedAt:publ
           data={articles.articles} 
           keyExtractor={item => item.url}
           renderItem={({item}) => (
-           <Item title={item.title}
-           content={item.content}
-           author={item.author}
-           publishedAt={item.publishedAt.slice(0,10)}
-           url={item.url}
-       
-            />
+            <Card 
+            navigation={props.navigation} 
+            title={item.title}
+            image={item.urlToImage}
+            description={item.description}
+            url={item.url}
+        />
           )}
           />
           </SafeAreaView>

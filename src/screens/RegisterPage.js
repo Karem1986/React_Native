@@ -9,7 +9,7 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import Header from "../components/Header";
+
 
 export default function RegisterPage() {
   //1.First we grab the value the user enters with state

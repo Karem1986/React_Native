@@ -39,11 +39,10 @@ const HeaderLeft = () => {
 
 function RegisterNavigator() {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerLeft: () => <HeaderLeft />,
-      }}
-    >
+    <Stack.Navigator 
+    screenOptions={{
+      headerLeft: () => <HeaderLeft />,
+    }}>
       <Stack.Screen
         name="Homepage"
         component={RegisterPage}
@@ -58,18 +57,7 @@ function RegisterNavigator() {
     </Stack.Navigator>
   );
 }
-function AboutNavigator() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerLeft: () => <HeaderLeft />,
-      }}
-    >
-      <Stack.Screen name="About us" component={AboutUs} />
-    </Stack.Navigator>
-  );
-}
-function DashboardNavigator() {
+function FavoritesNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -77,6 +65,17 @@ function DashboardNavigator() {
       }}
     >
       <Stack.Screen name="Favorites" component={Favorites} />
+    </Stack.Navigator>
+  );
+}
+function AboutNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerLeft: () => <HeaderLeft />,
+      }}
+    >
+      <Stack.Screen name="About" component={AboutUs} />
     </Stack.Navigator>
   );
 }
@@ -101,7 +100,7 @@ function TabNavigator() {
       })}
     >
       <Tab.Screen name="Register" component={RegisterNavigator} />
-      <Tab.Screen name="Favorites" component={DashboardNavigator} />
+      <Tab.Screen name="Favorites" component={FavoritesNavigator} />
       <Tab.Screen name="Resources" component={ExtraPage} />
     </Tab.Navigator>
   );
