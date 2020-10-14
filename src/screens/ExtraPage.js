@@ -14,7 +14,7 @@ useEffect(() => {
  const articles = useSelector(state => state.news.articles)
 console.log('articles', articles)
 
-const Item = ({ title: title, content: content, author: author, publishedAt:publishedAt}) => (
+const Item = ({ title: title, content: content, author: author, publishedAt:publishedAt, url: url}) => (
   <View>
     <Text style={styles.title}>{title.length > 20 ? title.slice(0,20) : title}</Text>
 <Text style={styles.content}>{content}</Text>
@@ -24,8 +24,6 @@ const Item = ({ title: title, content: content, author: author, publishedAt:publ
   </View>
 
 );
-
-
 
   return (
    
@@ -40,6 +38,7 @@ const Item = ({ title: title, content: content, author: author, publishedAt:publ
            content={item.content}
            author={item.author}
            publishedAt={item.publishedAt.slice(0,10)}
+           url={item.url}
        
             />
           )}

@@ -16,8 +16,9 @@ const Drawer = createDrawerNavigator();
 
 //Our screens
 import RegisterPage from "../screens/RegisterPage";
+import NewsDetail from "../screens/NewsDetail"
 import AboutUs from "../screens/AboutUs";
-import Dashboard from "../screens/Dashboard";
+import Favorites from "../screens/Favorites";
 import ExtraPage from "../screens/ExtraPage";
 
 //Hamburger menu
@@ -48,6 +49,11 @@ function RegisterNavigator() {
         component={RegisterPage}
         options={{ title: "Kermit App" }}
       />
+        <Stack.Screen
+        name="NewsDetail"
+        component={NewsDetail}
+        options={{ title: "News Details" }}
+      />
     
     </Stack.Navigator>
   );
@@ -70,7 +76,7 @@ function DashboardNavigator() {
         headerLeft: () => <HeaderLeft />,
       }}
     >
-      <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="Favorites" component={Favorites} />
     </Stack.Navigator>
   );
 }
@@ -87,7 +93,7 @@ function TabNavigator() {
           } else if (route.name === "Resources") {
             iconName = "cat";
             return <MaterialCommunityIcons name="cat" size={24} color="black" />;
-          } else if (route.name == "Dashboard") {
+          } else if (route.name == "Favorites") {
             iconName = "people";
             return <MaterialIcons name="people" size={24} color="black" />;
           }
@@ -95,7 +101,7 @@ function TabNavigator() {
       })}
     >
       <Tab.Screen name="Register" component={RegisterNavigator} />
-      <Tab.Screen name="Dashboard" component={DashboardNavigator} />
+      <Tab.Screen name="Favorites" component={DashboardNavigator} />
       <Tab.Screen name="Resources" component={ExtraPage} />
     </Tab.Navigator>
   );
