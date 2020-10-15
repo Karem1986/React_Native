@@ -1,22 +1,38 @@
 import React from 'react';
 import {StyleSheet, View, Text, ImageBackground} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
-const NewsDetailsScreen = () => {
+import {useSelector, useDispatch} from 'react-redux'
+import  * as resourcesAction from '../Redux/actions/resourcesAction'
+const NewsDetailsScreen =  props => {
 
+    const dispatch = useDispatch()
+    const {articleUrl} = props.route.params   
+    const articleDetails = useSelector(state => state.news.articles.articles.find(article => 
+        article.url === articleUrl) )
+
+//Adding the fav icon 
+const isFav = useSelector(state => state.news.favorites.some(article => 
+    article.url === articleDetails.url));
     return(
         <View style={styles.container}>
           
             <View style={styles.heading}>
-            <Text style={styles.title}>Title of article</Text>
+    <Text style={styles.title}>{articleDetails.title}</Text>
             </View>
             <View>
-            <ImageBackground style={styles.image}>
-                <Text style={styles.author}></Text>
-                <MaterialIcons />
+            <ImageBackground  source={{uri: articleDetails.urlToImage}}  style={styles.image}>
+    <Text style={styles.author}>{articleDetails.author}</Text>
+    <MaterialIcons 
+                  name={isFav ? 'favorite': 'favorite-border'} 
+                  color="#72bcd4" size={24} 
+                  onPress={() => {
+                      dispatch(resourcesAction.toggleFavorites(articleDetails.url))
+                  }}
+              />
             </ImageBackground>
             </View>
             <View style={styles.description}>
-            <Text>Description</Text>
+    <Text>{articleDetails.description}</Text>
             </View>
         </View>
     );
@@ -24,38 +40,42 @@ const NewsDetailsScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#ffffff',
-        height: 300,
-        margin: 20,
+        backgroundColor: '#01c5c4',
+        height: 700,
+        width: '100%',
         borderRadius: 10,
-        shadowColor: 'black',
         shadowOpacity: 0.25,
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 8,
-        elevation: 5
+    
     },
     image: {
-        backgroundColor: '#111000',
+       
+        width: '100%',
+        height: 240,
+        backgroundColor: '#444897',
+  
     },
     title: {
-        height: '10%',
-        paddingHorizontal: 15,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 10
+        padding: 20,
+        marginTop: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        width: '100%',
+        height: 100,
     },
     heading: {
-        backgroundColor: '#444897',
+        backgroundColor: '#01c5c4',
     },
     author: {
         fontFamily: 'sans-serif',
         fontSize: 20,
     },
     description:{
-        fontFamily: 'sans-serif',
-        fontSize: 15,
-        marginTop: 10
+        padding: 20,
+        alignItems: "center",
+        justifyContent: "center",
+       
     },
 });
 

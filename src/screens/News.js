@@ -21,7 +21,7 @@ useEffect(() => {
    
           <SafeAreaView style={styles.articlesStyle}>
             <Header 
-            title="Articles"/>
+            title="Kermit Tech News"/>
               <FlatList 
           data={articles} 
           keyExtractor={item => item.url}

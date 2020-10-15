@@ -19,7 +19,7 @@ import RegisterPage from "../screens/RegisterPage";
 import NewsDetail from "../screens/NewsDetail"
 import AboutUs from "../screens/AboutUs";
 import Favorites from "../screens/Favorites";
-import ExtraPage from "../screens/ExtraPage";
+import News from "../screens/News";
 
 //Hamburger menu
 const HeaderLeft = () => {
@@ -89,7 +89,7 @@ function TabNavigator() {
           if (route.name === "Register") {
             iconName = "sign-in";
             return <FontAwesome name="sign-in" size={24} color="black" />;
-          } else if (route.name === "Resources") {
+          } else if (route.name === "Tech News") {
             iconName = "cat";
             return <MaterialCommunityIcons name="cat" size={24} color="black" />;
           } else if (route.name == "Favorites") {
@@ -99,9 +99,10 @@ function TabNavigator() {
         },
       })}
     >
-      <Tab.Screen name="Register" component={RegisterNavigator} />
+   
+   <Tab.Screen name="Register" component={RegisterNavigator} />
+      <Tab.Screen name="Tech News" component={News} />
       <Tab.Screen name="Favorites" component={FavoritesNavigator} />
-      <Tab.Screen name="Resources" component={ExtraPage} />
     </Tab.Navigator>
   );
 }

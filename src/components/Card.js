@@ -8,10 +8,15 @@ import  * as resourcesAction from "../Redux/actions/resourcesAction"
 const Card = props => {
 
   const dispatch = useDispatch()
-  const isFav = useSelector(state => state.news.favorites.some(article => article.url === props.url));
+  const isFav = useSelector(state => state.news.favorites.some(article => 
+    article.url === props.url));
 
     return(
-      <TouchableOpacity onPress={() => props.navigation.navigate('NewsDetail')}>
+      <TouchableOpacity onPress={() => {
+          props.navigation.navigate('NewsDetail', {
+              articleUrl: props.url
+          })
+      }}>
       <View style={styles.card}>
           <View style={styles.imageWrapper}> 
               <Image 
