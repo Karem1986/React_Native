@@ -2,18 +2,18 @@
 import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet, View, Text, FlatList, StatusBar} from "react-native";
 import {useDispatch, useSelector} from "react-redux"
-import {fetchArticles} from '../Redux/actions/resourcesAction'
 import Header from "../components/Header"
 import Card from "../components/Card"
+import  * as resourcesAction from '../Redux/actions/resourcesAction'
 
-export default function ExtraPage(props) {
+const  ExtraPage = props => {
   const dispatch = useDispatch()
 
 useEffect(() => {
-  dispatch(fetchArticles)
+  dispatch(resourcesAction.fetchArticles())
 }, [dispatch])
 
- const articles = useSelector(state => state.news.articles)
+ const {articles} = useSelector(state => state.news.articles)
   console.log('articles', articles)
  
 
@@ -23,7 +23,7 @@ useEffect(() => {
             <Header 
             title="Articles"/>
               <FlatList 
-          data={articles.articles} 
+          data={articles} 
           keyExtractor={item => item.url}
           renderItem={({item}) => (
             <Card 
@@ -82,3 +82,4 @@ const styles = StyleSheet.create({
     fontSize: 15
   }
 })
+export default ExtraPage;
