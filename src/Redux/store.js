@@ -8,6 +8,7 @@ const rootReducer = combineReducers({
   news: resourcesReducer,
 });
 
+
 const middleware = composeWithDevTools(applyMiddleware(thunk));
 
 export default createStore(rootReducer, middleware);

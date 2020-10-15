@@ -13,7 +13,7 @@ const Card = props => {
     return(
       <TouchableOpacity onPress={() => props.navigation.navigate('NewsDetail')}>
       <View style={styles.card}>
-          <View style={styles.imageWrapper}>
+          <View style={styles.imageWrapper}> 
               <Image 
                   // source={require('../../assets/news-demo.jpg')} 
                   source={{uri: props.image}}
