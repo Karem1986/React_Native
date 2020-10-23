@@ -45,10 +45,16 @@ function RegisterNavigator() {
     screenOptions={{
       headerLeft: () => <HeaderLeft />,
     }}>
+         <Stack.Screen
+        name="Login"
+        component={LoginPage}
+        options={{ headerShown: false }}
+      />
+   
       <Stack.Screen
-        name="Homepage"
+        name="Register"
         component={RegisterPage}
-        options={{ title: "Kermit App" }}
+        options={{ headerShown: false }}
       />
         <Stack.Screen
         name="NewsDetail"

@@ -1,64 +1,90 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  Button,
-  StyleSheet,
-  Image,
-  Text,
-  TextInput,
-  View,
-  ScrollView,
-} from "react-native";
+import {Formik} from 'formik'
+import {StyleSheet, Image,  View, Text, TextInput, ScrollView, KeyboardAvoidingView, 
+  TouchableOpacity} from 'react-native'
 
-export default function RegisterPage() {
-  //1.First we grab the value the user enters with state
-  const [addItem, setAddItem] = useState("");
-  //2. Second, we store the values the user enters, that is an [] initialState
-  const [storeItem, setStoreItem] = useState([]);
+export default function RegisterPage(navData) {
 
-  const addList = () => {
-    setStoreItem([...storeItem, addItem]);
-    console.log("testing storeItem", storeItem);
-  };
   return (
-    <View>
-      <View style={styles.container}>
-        <Image style={styles.techieCat} source={require("../../assets/techieCat.jpeg")} />
-        <View>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Enter your email"
-            onChangeText={(text) => setAddItem(text)}
-            value={addItem}
-          ></TextInput>
+<KeyboardAvoidingView
+       behaviour="padding"
+       style={{flex: 1}} >
 
-          <Button
-            title="Register"
-            onPress={addList}
-            color="grey"
-            accessibilityLabel="App for web developers"
-          />
+        <ScrollView>
+          <Formik
+            initialValues={{
+              name: "",
+                email: "",
+                password: ""
+            }}
+             onSubmit={(values) => {
+               console.log(values)
+             }}
+          >
+         {(props) => (
+            <View style={styles.container}>
+                <View style={styles.logo}>
+                    <Image style={styles.image} source={require("../../assets/cat.jpeg")} />
 
-          <StatusBar style="auto" />
-          <ScrollView style={styles.scrollBar}>
-            {storeItem.map((todo, key) => {
-              return (
-                <Text key={key} style={styles.showItems}>
-                  {" "}
-                  {todo}{" "}
-                </Text>
-              );
-            })}
-          </ScrollView>
-        </View>
-      </View>
-    </View>
+                </View>
+                <View>
+                <TextInput
+                       style={styles.input}
+                       placeholder="Name"
+                       placeholderTextColor="#fff"
+                       onChange={props.handleChange('name')}
+                       value={props.values.name}
+                    />
+                <TextInput
+                       style={styles.input}
+                       placeholder="Email"
+                       placeholderTextColor="#fff"
+                       keyboardType="email-address"
+                       onChange={props.handleChange('email')}
+                       value={props.values.email}
+                    />
+                       <TextInput
+                       style={styles.input}
+                       placeholder="Password"
+                       placeholderTextColor="#fff"
+                      secureTextEntry={true}
+                      onChange={props.handleChange('password')}
+                      value={props.values.password}
+                    />
+                        <TouchableOpacity 
+                        style={styles.button}
+                        onPress={props.handleSubmit}
+                        >
+                          
+                        <Text style={styles.buttonText}>Register</Text>
+                    </TouchableOpacity>
+                </View>
+                   
+                    <View style={styles.registerContainer}>
+                      <Text>Have an account?</Text>
+                      <TouchableOpacity
+                       onPress={() => navData.navigation.navigate("Login")}
+                      >
+                        <Text style={styles.registerButton}>
+                          Login
+                          </Text>
+                      </TouchableOpacity>
+                    </View>
+
+            </View>
+         )}
+
+          </Formik>
+        </ScrollView>
+
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 70,
+    padding: 150,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
@@ -71,28 +97,49 @@ const styles = StyleSheet.create({
     width: 190,
     height: 190,
   },
-  text: {
-    padding: 20,
-    fontSize: 15,
-    fontWeight: "bold",
-    marginTop: 20,
-  },
-  textInput: {
-    padding: 20,
-    marginTop: 10,
-    borderColor: "#345678",
-    marginBottom: 10,
-    borderWidth: 2,
-    borderColor: "gray",
-  },
-  showItems: {
-    padding: 25,
-    marginTop: 20,
-    backgroundColor: "#000000",
-    textAlign: "center",
-    color: "white",
-  },
-  scrollBar: {
-    width: "auto",
-  },
+  logo: {
+    alignItems: 'center',
+    marginBottom: 40
+   },
+   image: {
+     width: 120,
+     height: 120
+   },
+   input: {
+    width: 300,
+    backgroundColor: '#B6BFC4',
+    borderRadius: 25,
+    padding:16,
+    fontSize: 16,
+    marginVertical: 10
+   
+   },
+   button: {
+     width: 300,
+     backgroundColor: '#738289',
+     borderRadius: 25,
+     marginVertical: 10,
+     paddingVertical: 13
+   },
+   buttonText: {
+     fontSize: 16,
+     fontWeight: '500',
+     color: '#ffffff',
+     textAlign: 'center'
+   },
+   registerContainer: {
+     alignItems: 'flex-end',
+     justifyContent: 'center',
+     paddingVertical: 16,
+     flexDirection: 'row'
+   },
+   registerText: {
+     color: '#738289',
+     fontSize: 16
+   },
+   registerButton: {
+    color: '#738289',
+    fontSize: 16,
+    fontWeight: 'bold'
+   }
 });

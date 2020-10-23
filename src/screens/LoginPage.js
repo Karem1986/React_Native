@@ -1,11 +1,9 @@
 import React from 'react'
 import {Formik} from 'formik'
-import {StyleSheet, View, Text, ScrollView, KeyboardAvoidingView, 
+import {StyleSheet, View, Text, Image, TextInput,  ScrollView, KeyboardAvoidingView, 
   TouchableOpacity} from 'react-native'
 
-export default function LoginPage() {
-
-
+export default function LoginPage(navData) {
 
   return (
     <KeyboardAvoidingView
@@ -34,21 +32,31 @@ export default function LoginPage() {
                        placeholder="Email"
                        placeholderTextColor="#fff"
                        keyboardType="email-address"
+                       onChange={props.handleChange('email')}
+                       value={props.values.email}
                     />
                        <TextInput
                        style={styles.input}
                        placeholder="Password"
                        placeholderTextColor="#fff"
                       secureTextEntry={true}
+                      onChange={props.handleChange('password')}
+                      value={props.values.password}
                     />
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity 
+                        style={styles.button}
+                        onPress={props.handleSubmit}
+                        > 
                         <Text style={styles.buttonText}>Login</Text>
                     </TouchableOpacity>
                 </View>
                    
                     <View style={styles.registerContainer}>
                       <Text>Don't have an account?</Text>
-                      <TouchableOpacity>
+                      <TouchableOpacity
+                      onPress={()=> navData.navigation.navigate('Register')}
+                      
+                      >
                         <Text style={styles.registerButton}>
                           Register
                           </Text>
