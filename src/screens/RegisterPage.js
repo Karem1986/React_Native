@@ -89,7 +89,7 @@ export default function RegisterPage(navData) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 40,
+    padding: 30,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
     marginBottom: 40
    },
    image: {
-     width: 160,
-     height: 160
+     width: 170,
+     height: 165
    },
    input: {
     width: 300,
