@@ -15,6 +15,8 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 //Our screens
+import LoginPage from "../screens/LoginPage";
+import HomePage from "../screens/HomePage";
 import RegisterPage from "../screens/RegisterPage";
 import NewsDetail from "../screens/NewsDetail"
 import AboutUs from "../screens/AboutUs";

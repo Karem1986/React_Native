@@ -23,7 +23,7 @@ export default function RegisterPage() {
   return (
     <View>
       <View style={styles.container}>
-        <Image style={styles.cat} source={require("../../assets/cat.jpeg")} />
+        <Image style={styles.techieCat} source={require("../../assets/techieCat.jpeg")} />
         <View>
           <TextInput
             style={styles.textInput}
@@ -63,13 +63,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  cat: {
+  techieCat: {
     padding: 20,
-    marginTop: 150,
+    marginTop: 160,
     alignItems: "center",
     justifyContent: "center",
-    width: 120,
-    height: 160,
+    width: 190,
+    height: 190,
   },
   text: {
     padding: 20,
