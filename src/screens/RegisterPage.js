@@ -10,7 +10,6 @@ import {
   ScrollView,
 } from "react-native";
 
-
 export default function RegisterPage() {
   //1.First we grab the value the user enters with state
   const [addItem, setAddItem] = useState("");
