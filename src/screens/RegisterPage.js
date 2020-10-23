@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import Header from "../components/Header"
 import {Formik} from 'formik'
 import {StyleSheet, Image,  View, Text, TextInput, ScrollView, KeyboardAvoidingView, 
   TouchableOpacity} from 'react-native'
@@ -7,6 +8,7 @@ import {StyleSheet, Image,  View, Text, TextInput, ScrollView, KeyboardAvoidingV
 export default function RegisterPage(navData) {
 
   return (
+
 <KeyboardAvoidingView
        behaviour="padding"
        style={{flex: 1}} >
@@ -23,9 +25,12 @@ export default function RegisterPage(navData) {
              }}
           >
          {(props) => (
+        
             <View style={styles.container}>
+              <Header 
+              title="Kermit Tech News"/>
                 <View style={styles.logo}>
-                    <Image style={styles.image} source={require("../../assets/cat.jpeg")} />
+                    <Image style={styles.image} source={require("../../assets/techieCat.jpeg")} />
 
                 </View>
                 <View>
@@ -84,32 +89,24 @@ export default function RegisterPage(navData) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 150,
+    padding: 40,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
-  },
-  techieCat: {
-    padding: 20,
-    marginTop: 160,
-    alignItems: "center",
-    justifyContent: "center",
-    width: 190,
-    height: 190,
   },
   logo: {
     alignItems: 'center',
     marginBottom: 40
    },
    image: {
-     width: 120,
-     height: 120
+     width: 160,
+     height: 160
    },
    input: {
     width: 300,
     backgroundColor: '#B6BFC4',
     borderRadius: 25,
-    padding:16,
+    padding:12,
     fontSize: 16,
     marginVertical: 10
    
