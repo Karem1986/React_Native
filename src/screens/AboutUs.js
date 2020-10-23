@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-export default function AboutUsScreen() {
+export default function AboutUsPage() {
   return (
     <View>
       <Text>About us Screen</Text>
