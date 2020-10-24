@@ -100,7 +100,7 @@ function TabNavigator() {
       screenOptions={({ route }) => ({
         tabBarIcon: () => {
           let iconName;
-          if (route.name === "Register") {
+          if (route.name === "Login") {
             iconName = "sign-in";
             return <FontAwesome name="sign-in" size={24} color="black" />;
           } else if (route.name === "Tech News") {
@@ -114,7 +114,7 @@ function TabNavigator() {
       })}
     >
    
-   <Tab.Screen name="Register" component={RegisterNavigator} />
+   <Tab.Screen name="Login" component={RegisterNavigator} />
       <Tab.Screen name="Tech News" component={News} />
       <Tab.Screen name="Favorites" component={FavoritesNavigator} />
     </Tab.Navigator>

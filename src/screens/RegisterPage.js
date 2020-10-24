@@ -2,17 +2,38 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import Header from "../components/Header"
 import {Formik} from 'formik'
-import {StyleSheet, Image,  View, Text, TextInput, ScrollView, KeyboardAvoidingView, 
-  TouchableOpacity} from 'react-native'
+import {StyleSheet, Image,
+    View, Text,
+     TextInput, ScrollView, 
+     KeyboardAvoidingView, 
+  TouchableOpacity, 
+Platform} from 'react-native'
 
+  //Form validation to register
+import * as yup from 'yup'
+
+const loginValidationSchema = yup.object().shape({
+  name: yup
+  .string()
+  .required('Name is Required')
+  .min(3),
+  email: yup
+    .string()
+    .email("Please enter valid email")
+    .required('Email Address is Required'),
+  password: yup
+    .string()
+    .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    .required('Password is required'),
+})
 export default function RegisterPage(navData) {
 
   return (
 
 <KeyboardAvoidingView
+   behaviour={Platform.OS === "ios" ? "padding" : "height"}
        behaviour="padding"
        style={{flex: 1}} >
-
         <ScrollView>
           <Formik
             initialValues={{
@@ -20,6 +41,7 @@ export default function RegisterPage(navData) {
                 email: "",
                 password: ""
             }}
+            validationSchema={loginValidationSchema}
              onSubmit={(values) => {
                console.log(values)
                navData.navigation.navigate('Home')
@@ -41,7 +63,9 @@ export default function RegisterPage(navData) {
                        placeholderTextColor="#fff"
                        onChangeText={props.handleChange('name')}
                        value={props.values.name}
+                       onBlur={props.handleBlur('name')}
                     />
+                        <Text style={styles.error}>{props.touched.name && props.errors.name}</Text>
                 <TextInput
                        style={styles.input}
                        placeholder="Email"
@@ -49,7 +73,9 @@ export default function RegisterPage(navData) {
                        keyboardType="email-address"
                        onChangeText={props.handleChange('email')}
                        value={props.values.email}
+                       onBlur={props.handleBlur('email')}
                     />
+                        <Text style={styles.error}>{props.touched.email && props.errors.email}</Text>
                        <TextInput
                        style={styles.input}
                        placeholder="Password"
@@ -57,7 +83,9 @@ export default function RegisterPage(navData) {
                       secureTextEntry={true}
                       onChangeText={props.handleChange('password')}
                       value={props.values.password}
+                      onBlur={props.handleBlur('password')}
                     />
+                        <Text style={styles.error}>{props.touched.password && props.errors.password}</Text>
                         <TouchableOpacity 
                         style={styles.button}
                         onPress={props.handleSubmit}
@@ -139,5 +167,8 @@ const styles = StyleSheet.create({
     color: '#738289',
     fontSize: 16,
     fontWeight: 'bold'
-   }
+   },
+   error: {
+    color: 'red'
+  }
 });
