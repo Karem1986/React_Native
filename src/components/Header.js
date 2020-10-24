@@ -11,14 +11,14 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    margin: 20,
-    padding: 50,
-    height: 30,
-    borderRadius: 20, 
-    width: "189%",
+    margin: 5,
+    padding: 10,
+    height: 100,
+    borderRadius: 10, 
+    width: "225%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#f08a5d",
+    backgroundColor: "#f08a5d"
   },
   title: {
     fontSize: 20,

@@ -21,15 +21,16 @@ const isFav = useSelector(state => state.news.favorites.some(article =>
             </View>
             <View>
             <ImageBackground  source={{uri: articleDetails.urlToImage}}  style={styles.image}>
-    <Text style={styles.author}>{articleDetails.author}</Text>
+
     <MaterialIcons 
                   name={isFav ? 'favorite': 'favorite-border'} 
-                  color="#72bcd4" size={24} 
+                  color="#6a2c70" size={44} 
                   onPress={() => {
                       dispatch(resourcesAction.toggleFavorites(articleDetails.url))
                   }}
               />
             </ImageBackground>
+            <Text style={styles.author}>{articleDetails.author}</Text>
             </View>
             <View style={styles.description}>
     <Text>{articleDetails.description}</Text>
@@ -40,7 +41,7 @@ const isFav = useSelector(state => state.news.favorites.some(article =>
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#01c5c4',
+        backgroundColor: '#b83b5e',
         height: 700,
         width: '100%',
         borderRadius: 10,
@@ -58,14 +59,17 @@ const styles = StyleSheet.create({
     },
     title: {
         padding: 20,
-        marginTop: 50,
+        marginTop: 10,
         alignItems: "center",
         justifyContent: "center",
         width: '100%',
         height: 100,
     },
     heading: {
-        backgroundColor: '#01c5c4',
+        backgroundColor: '#b83b5e',
+        fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
     },
     author: {
         fontFamily: 'sans-serif',

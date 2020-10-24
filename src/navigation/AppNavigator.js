@@ -66,7 +66,7 @@ function RegisterNavigator() {
         <Stack.Screen
         name="NewsDetail"
         component={NewsDetail}
-        options={{ title: "News Details" }}
+        options={{ title: "Tech news details" }}
       />
     
     </Stack.Navigator>
