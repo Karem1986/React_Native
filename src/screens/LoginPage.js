@@ -1,21 +1,39 @@
 import React from 'react'
 import {Formik} from 'formik'
-import {StyleSheet, View, Text, Image, TextInput,  ScrollView, KeyboardAvoidingView, 
-  TouchableOpacity} from 'react-native'
+import {StyleSheet, View, Text, Image, 
+  TextInput,
+    ScrollView, 
+    KeyboardAvoidingView, 
+  TouchableOpacity,
+Platform} from 'react-native'
+
+//Form validation 
+import * as yup from 'yup'
+
+const loginValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Please enter valid email")
+    .required('Email Address is Required'),
+  password: yup
+    .string()
+    .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    .required('Password is required'),
+})
 
 export default function LoginPage(navData) {
-
   return (
     <KeyboardAvoidingView
-       behaviour="padding"
+       behaviour={Platform.OS === "ios" ? "padding" : "height"}
        style={{flex: 1}} >
 
         <ScrollView>
           <Formik
             initialValues={{
                 email: "",
-                password: ""
+                password: "",
             }}
+            validationSchema={loginValidationSchema}
              onSubmit={(values) => {
                console.log(values)
                navData.navigation.navigate('Home')
@@ -35,7 +53,9 @@ export default function LoginPage(navData) {
                        keyboardType="email-address"
                        onChangeText={props.handleChange('email')}
                        value={props.values.email}
+                       onBlur={props.handleBlur('email')}
                     />
+                    <Text style={styles.error}>{props.touched.email && props.errors.email}</Text>
                        <TextInput
                        style={styles.input}
                        placeholder="Password"
@@ -43,7 +63,9 @@ export default function LoginPage(navData) {
                       secureTextEntry={true}
                       onChangeText={props.handleChange('password')}
                       value={props.values.password}
+                      onBlur={props.handleBlur('password')}
                     />
+                         <Text style={styles.error}>{props.touched.password && props.errors.password}</Text>
                         <TouchableOpacity 
                         style={styles.button}
                         onPress={props.handleSubmit}
@@ -125,6 +147,9 @@ registerButton: {
  color: '#738289',
  fontSize: 16,
  fontWeight: 'bold'
+},
+error: {
+  color: 'red'
 }
 
 });
