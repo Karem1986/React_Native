@@ -1,5 +1,6 @@
 import React from 'react'
 import {Formik} from 'formik'
+import Header from "../components/Header"
 import {StyleSheet, View, Text, Image, 
   TextInput,
     ScrollView, 
@@ -41,6 +42,8 @@ export default function LoginPage(navData) {
           >
          {(props) => (
             <View style={styles.container}>
+                <Header 
+              title="Kermit Tech News"/>
                 <View style={styles.logo}>
                     <Image style={styles.image} source={require("../../assets/cat.jpeg")} />
 
@@ -98,7 +101,7 @@ export default function LoginPage(navData) {
 
 const styles = StyleSheet.create({
  container: {
-  padding: 150,
+  padding: 70,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
@@ -108,8 +111,8 @@ logo: {
  marginBottom: 40
 },
 image: {
-  width: 190,
-     height: 175
+  width: 140,
+     height: 140
 },
 input: {
  width: 300,

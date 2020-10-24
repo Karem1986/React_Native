@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons'; 
 
 
 const Stack = createStackNavigator();
@@ -71,6 +72,17 @@ function RegisterNavigator() {
     </Stack.Navigator>
   );
 }
+function HomeNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerLeft: () => <HeaderLeft />,
+      }}
+    >
+      <Stack.Screen name="Home" component={HomePage} />
+    </Stack.Navigator>
+  );
+}
 function FavoritesNavigator() {
   return (
     <Stack.Navigator
@@ -109,11 +121,15 @@ function TabNavigator() {
           } else if (route.name == "Favorites") {
             iconName = "people";
             return <MaterialIcons name="people" size={24} color="black" />;
+          } else if (route.name === "Home") {
+            iconName = "home"
+            return <AntDesign name="home" size={24} color="black" />
           }
         },
       })}
     >
    
+   <Tab.Screen name="Home" component={HomeNavigator} />
    <Tab.Screen name="Login" component={RegisterNavigator} />
       <Tab.Screen name="Tech News" component={News} />
       <Tab.Screen name="Favorites" component={FavoritesNavigator} />
@@ -132,4 +148,4 @@ function AppNavigator() {
 }
 
 export default AppNavigator;
-//NEXT: Hamburger menu
+
