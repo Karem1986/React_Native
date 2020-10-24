@@ -22,6 +22,7 @@ export default function RegisterPage(navData) {
             }}
              onSubmit={(values) => {
                console.log(values)
+               navData.navigation.navigate('Home')
              }}
           >
          {(props) => (
@@ -38,7 +39,7 @@ export default function RegisterPage(navData) {
                        style={styles.input}
                        placeholder="Name"
                        placeholderTextColor="#fff"
-                       onChange={props.handleChange('name')}
+                       onChangeText={props.handleChange('name')}
                        value={props.values.name}
                     />
                 <TextInput
@@ -46,7 +47,7 @@ export default function RegisterPage(navData) {
                        placeholder="Email"
                        placeholderTextColor="#fff"
                        keyboardType="email-address"
-                       onChange={props.handleChange('email')}
+                       onChangeText={props.handleChange('email')}
                        value={props.values.email}
                     />
                        <TextInput
@@ -54,7 +55,7 @@ export default function RegisterPage(navData) {
                        placeholder="Password"
                        placeholderTextColor="#fff"
                       secureTextEntry={true}
-                      onChange={props.handleChange('password')}
+                      onChangeText={props.handleChange('password')}
                       value={props.values.password}
                     />
                         <TouchableOpacity 
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     marginBottom: 40
    },
    image: {
-     width: 170,
+     width: 180,
      height: 165
    },
    input: {

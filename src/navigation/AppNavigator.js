@@ -56,6 +56,12 @@ function RegisterNavigator() {
         component={RegisterPage}
         options={{ headerShown: false }}
       />
+            <Stack.Screen
+        name="Home"
+        component={HomePage}
+        options={{ headerLeft: null }}
+      
+      />
         <Stack.Screen
         name="NewsDetail"
         component={NewsDetail}

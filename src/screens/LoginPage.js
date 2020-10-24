@@ -18,6 +18,7 @@ export default function LoginPage(navData) {
             }}
              onSubmit={(values) => {
                console.log(values)
+               navData.navigation.navigate('Home')
              }}
           >
          {(props) => (
@@ -32,7 +33,7 @@ export default function LoginPage(navData) {
                        placeholder="Email"
                        placeholderTextColor="#fff"
                        keyboardType="email-address"
-                       onChange={props.handleChange('email')}
+                       onChangeText={props.handleChange('email')}
                        value={props.values.email}
                     />
                        <TextInput
@@ -40,7 +41,7 @@ export default function LoginPage(navData) {
                        placeholder="Password"
                        placeholderTextColor="#fff"
                       secureTextEntry={true}
-                      onChange={props.handleChange('password')}
+                      onChangeText={props.handleChange('password')}
                       value={props.values.password}
                     />
                         <TouchableOpacity 
@@ -85,8 +86,8 @@ logo: {
  marginBottom: 40
 },
 image: {
-  width: 170,
-     height: 165
+  width: 190,
+     height: 175
 },
 input: {
  width: 300,
