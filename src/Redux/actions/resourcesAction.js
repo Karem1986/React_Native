@@ -1,6 +1,37 @@
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
 export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES';
 
+//Register, login success and failure:
+export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS'
+export const REGISTER_USER_FAIL = 'REGISTER_USER_FAIL'
+export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
+export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL'
+
+export const registerUser = (authData) => {
+    const { name, email, password} = authData;
+
+    return async dispatch => {
+
+    // logic to make a post request to register the user 
+        dispatch({
+            type: REGISTER_USER_SUCCESS,
+            payload: 1
+        })
+    }
+}
+export const loginUser = (authData) => {
+    const { email, password} = authData;
+
+    return async dispatch => {
+
+        // logic to make a post request to login the user 
+        dispatch({
+            type: LOGIN_USER_SUCCESS,
+            payload: 1
+        })
+    }
+}
+
 export const fetchArticles = () => {
     return async dispatch => {
 

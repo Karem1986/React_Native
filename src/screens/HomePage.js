@@ -20,13 +20,13 @@ export default function HomePage(navData) {
 
       
  <View style={styles.registerContainer}>
-                      <Text>Login</Text>
+                    
                       <TouchableOpacity
                       onPress={()=> navData.navigation.navigate('Login')}
                       
                       >
                         <Text style={styles.registerButton}>
-                          Go to Login
+                          Login
                           </Text>
                       </TouchableOpacity>
                     </View>
