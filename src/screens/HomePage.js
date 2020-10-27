@@ -2,8 +2,7 @@ import React from 'react'
 import Header from "../components/Header"
 import {StyleSheet, Image,
   View, Text,
-TouchableOpacity, 
-Platform} from 'react-native'
+TouchableOpacity} from 'react-native'
 export default function HomePage(navData) {
   return (
  
@@ -12,12 +11,12 @@ export default function HomePage(navData) {
         <Header 
         title="Welcome to KermitTech News"/>
       </View>
-      <Text style={styles.descriptionText}>Labore cillum et magna mollit 
-      tempor incididunt ut nisi. 
-      Officia labore et commodo labore non veniam aliquip aliquip eu enim. 
-      Cupidatat irure magna magna labore enim nulla. </Text>
+    
  <Image style={styles.image} source={require("../../assets/giphy.gif")} />
-
+ <Text style={styles.descriptionText}> Are you a Tech Enthusiast? with no time 
+ to keep up to date with the latest news? Then, Kermit is the perfect
+ solution for you!
+       </Text>
       
  <View style={styles.registerContainer}>
                     
@@ -37,21 +36,22 @@ export default function HomePage(navData) {
 const styles = StyleSheet.create({
 
   container: {
-  
-    padding: 70,
-    backgroundColor: "#6a2c70",
+    padding: 35,
+    backgroundColor: "#c62a88",
     alignItems: "center",
     justifyContent: "center",
     height: "100%"
   },
-  descriptionText: {
-   marginTop: 20,
-   fontSize: 20,
+  descriptionText: { 
+    padding: 10, 
+    margin: 20,
+    fontSize: 20,
   },
    image: {
+     padding: 20,
      margin: 30,
-     width: 250,
-     height:230
+     width: 230,
+     height:200
    },
    registerContainer: {
     alignItems: 'flex-end',
@@ -64,9 +64,12 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   registerButton: {
-   color: '#738289',
+   color: '#150485',
    fontSize: 16,
-   fontWeight: 'bold'
+   padding: 10,
+   fontWeight: 'bold',
+   backgroundColor: "#03c4a1",
+   borderRadius: 10
   },
 
 });
