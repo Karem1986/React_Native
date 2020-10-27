@@ -24,7 +24,7 @@ export default function HomePage(navData) {
                       onPress={()=> navData.navigation.navigate('Login')}
                       
                       >
-                        <Text style={styles.registerButton}>
+                        <Text style={styles.Button}>
                           Login
                           </Text>
                       </TouchableOpacity>
@@ -57,16 +57,19 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingVertical: 16,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center"
   },
   registerText: {
     color: '#738289',
     fontSize: 16
   },
-  registerButton: {
+  Button: {
    color: '#150485',
-   fontSize: 16,
-   padding: 10,
+   fontSize: 17,
+   padding: 20,
+   width: "100%",
    fontWeight: 'bold',
    backgroundColor: "#03c4a1",
    borderRadius: 10
