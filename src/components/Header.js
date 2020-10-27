@@ -12,7 +12,7 @@ export default function Header(props) {
 const styles = StyleSheet.create({
   header: {
     margin: 20,
-    padding: 40,
+    padding: 60,
     height: 70,
     borderRadius: 10, 
     width: "225%",
