@@ -1,13 +1,10 @@
 import React from 'react'
 import Header from "../components/Header"
-
 import {StyleSheet, Image,
   View, Text,
-   TextInput, ScrollView, 
-   KeyboardAvoidingView, 
 TouchableOpacity, 
 Platform} from 'react-native'
-export default function HomePage() {
+export default function HomePage(navData) {
   return (
  
     <View  style={styles.container}>
@@ -15,17 +12,21 @@ export default function HomePage() {
         <Header 
         title="Welcome to KermitTech News"/>
       </View>
+      <Text style={styles.descriptionText}>Labore cillum et magna mollit 
+      tempor incididunt ut nisi. 
+      Officia labore et commodo labore non veniam aliquip aliquip eu enim. 
+      Cupidatat irure magna magna labore enim nulla. </Text>
  <Image style={styles.image} source={require("../../assets/giphy.gif")} />
 
       
  <View style={styles.registerContainer}>
-                      <Text>Don't have an account?</Text>
+                      <Text>Login</Text>
                       <TouchableOpacity
-                      onPress={()=> navData.navigation.navigate('Register')}
+                      onPress={()=> navData.navigation.navigate('Login')}
                       
                       >
                         <Text style={styles.registerButton}>
-                          Register
+                          Go to Login
                           </Text>
                       </TouchableOpacity>
                     </View>
@@ -36,16 +37,21 @@ export default function HomePage() {
 const styles = StyleSheet.create({
 
   container: {
-    padding: 100,
+  
+    padding: 70,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
     height: "100%"
   },
+  descriptionText: {
+   marginTop: 20,
+   fontSize: 20,
+  },
    image: {
-     margin: 120,
+     margin: 30,
      width: 250,
-     height:280
+     height:230
    },
    registerContainer: {
     alignItems: 'flex-end',
