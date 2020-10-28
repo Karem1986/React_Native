@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import Header from "../components/Header"
 import {useDispatch} from 'react-redux'
 import {Formik} from 'formik'
@@ -49,7 +48,8 @@ export default function RegisterPage(navData) {
              onSubmit={(values) => {
                dispatch(resourcesAction.registerUser(values))
                .then(() => {
-                navData.navigation.navigate('Tech News')
+                //  Once user registers --> can see the tech news
+                navData.navigation.navigate('Tech News') 
                })
                .catch(err => console.log(err))
               

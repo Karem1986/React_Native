@@ -27,7 +27,7 @@ export const registerUser = (authData) => {
             })
         })
 
-        const resultData = result.json()
+        const resultData = await result.json()
         console.log(resultData)
 
         dispatch({
