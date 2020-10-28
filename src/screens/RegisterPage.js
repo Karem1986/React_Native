@@ -49,7 +49,7 @@ export default function RegisterPage(navData) {
              onSubmit={(values) => {
                dispatch(resourcesAction.registerUser(values))
                .then(() => {
-                navData.navigation.navigate('Home')
+                navData.navigation.navigate('Tech News')
                })
                .catch(err => console.log(err))
               
@@ -126,7 +126,7 @@ export default function RegisterPage(navData) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 30,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding:12,
     fontSize: 16,
-    marginVertical: 10
+    
    
    },
    button: {

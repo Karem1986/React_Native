@@ -6,7 +6,7 @@ export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS'
 export const REGISTER_USER_FAIL = 'REGISTER_USER_FAIL'
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL'
-const BASE_URL = 'http://77.170.151.99:4002'
+const BASE_URL = 'http://192.168.2.12:4002'
 
 export const registerUser = (authData) => {
     const { name, email, password} = authData;

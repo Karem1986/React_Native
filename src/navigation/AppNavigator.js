@@ -51,12 +51,22 @@ function RegisterNavigator() {
         component={LoginPage}
         options={{ headerShown: false }}
       />
+          <Stack.Screen
+        name="Tech News"
+        component={News}
+        options={{ headerShown: false }}
+      />
    
       <Stack.Screen
         name="Register"
         component={RegisterPage}
         options={{ headerShown: false }}
       />
+        <Stack.Screen 
+        name="Home"
+        component={HomePage}
+        options={{ headerLeft: null }}
+                />
        
         <Stack.Screen
         name="NewsDetail"
@@ -126,7 +136,7 @@ function TabNavigator() {
    
    <Tab.Screen name="Home" component={HomeNavigator} />
    <Tab.Screen name="Login" component={RegisterNavigator} />
-      <Tab.Screen name="Tech News" component={News} />
+      {/* <Tab.Screen name="Tech News" component={News} /> */}
       <Tab.Screen name="Favorites" component={FavoritesNavigator} />
     </Tab.Navigator>
   );
