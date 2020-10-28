@@ -1,6 +1,7 @@
 import React from 'react'
 import {Formik} from 'formik'
 import Header from "../components/Header"
+import {useDispatch} from 'react-redux'
 import {StyleSheet, View, Text, Image, 
   TextInput,
     ScrollView, 
@@ -10,6 +11,7 @@ Platform} from 'react-native'
 
 //Form validation 
 import * as yup from 'yup'
+import * as resourcesAction from '../Redux/actions/resourcesAction'
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -23,6 +25,7 @@ const loginValidationSchema = yup.object().shape({
 })
 
 export default function LoginPage(navData) {
+  const dispatch = useDispatch()
   return (
     <KeyboardAvoidingView
        behaviour={Platform.OS === "ios" ? "padding" : "height"}
@@ -36,8 +39,12 @@ export default function LoginPage(navData) {
             }}
             validationSchema={loginValidationSchema}
              onSubmit={(values) => {
-               console.log(values)
-               navData.navigation.navigate('Home')
+              dispatch(resourcesAction.loginUser(values))
+              .then(() => {
+               //  Once user logs in --> can go to the tech news
+               navData.navigation.navigate('Tech News') 
+              })
+              .catch(err => console.log(err))
              }}
           >
          {(props) => (
