@@ -11,11 +11,10 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    margin: 20,
+
     padding: 60,
-    height: 70,
-    borderRadius: 10, 
-    width: "225%",
+    height: 40,
+    width: "220%",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#f08a5d"

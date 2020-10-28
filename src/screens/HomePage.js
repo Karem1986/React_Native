@@ -36,7 +36,7 @@ export default function HomePage(navData) {
 const styles = StyleSheet.create({
 
   container: {
-    padding: 35,
+    padding: 20,
     backgroundColor: "#c62a88",
     alignItems: "center",
     justifyContent: "center",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   Button: {
    color: '#150485',
    fontSize: 17,
-   padding: 20,
+   padding: 10,
    width: "100%",
    fontWeight: 'bold',
    backgroundColor: "#03c4a1",

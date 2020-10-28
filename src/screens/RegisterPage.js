@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import Header from "../components/Header"
+import {useDispatch} from 'react-redux'
 import {Formik} from 'formik'
 import {StyleSheet, Image,
     View, Text,
@@ -11,6 +12,8 @@ Platform} from 'react-native'
 
   //Form validation to register
 import * as yup from 'yup'
+import * as resourcesAction from '../Redux/actions/resourcesAction'
+
 
 const loginValidationSchema = yup.object().shape({
   name: yup
@@ -28,6 +31,7 @@ const loginValidationSchema = yup.object().shape({
 })
 export default function RegisterPage(navData) {
 
+  const dispatch = useDispatch()
   return (
 
 <KeyboardAvoidingView
@@ -43,8 +47,12 @@ export default function RegisterPage(navData) {
             }}
             validationSchema={loginValidationSchema}
              onSubmit={(values) => {
-               console.log(values)
-               navData.navigation.navigate('Home')
+               dispatch(resourcesAction.registerUser(values))
+               .then(() => {
+                navData.navigation.navigate('Home')
+               })
+               .catch(err => console.log(err))
+              
              }}
           >
          {(props) => (

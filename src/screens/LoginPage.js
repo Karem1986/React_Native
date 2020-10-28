@@ -101,7 +101,7 @@ export default function LoginPage(navData) {
 
 const styles = StyleSheet.create({
  container: {
-  padding: 80,
+  padding: 50,
     backgroundColor: "#6a2c70",
     alignItems: "center",
     justifyContent: "center",
