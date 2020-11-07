@@ -10,11 +10,11 @@ export default function HomePage(navData) {
       <View>
         <Header 
         title="Welcome to KermitTech News"/>
-      </View>
+      </View> 
     
  <Image style={styles.image} source={require("../../assets/giphy.gif")} />
- <Text style={styles.descriptionText}> Are you a Tech Enthusiast? with no time 
- to keep up to date with the latest news? Then, Kermit is the perfect
+ <Text style={styles.descriptionText}> Are you a Tech Enthusiast?
+  Then, Kermit is the perfect
  solution for you!
        </Text>
       

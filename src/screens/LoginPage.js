@@ -88,7 +88,6 @@ export default function LoginPage(navData) {
                       <Text>Don't have an account?</Text>
                       <TouchableOpacity
                       onPress={()=> navData.navigation.navigate('Register')}
-                      
                       >
                         <Text style={styles.registerButton}>
                           Register

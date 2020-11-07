@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/Header"
 import {useDispatch} from 'react-redux'
 import {Formik} from 'formik'
@@ -146,8 +146,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding:12,
     fontSize: 16,
-    
-   
    },
    button: {
      width: 300,

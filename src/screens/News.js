@@ -16,7 +16,6 @@ useEffect(() => {
  const {articles} = useSelector(state => state.news.articles)
   console.log('articles', articles)
  
-
   return (
    
           <SafeAreaView style={styles.articlesStyle}>
