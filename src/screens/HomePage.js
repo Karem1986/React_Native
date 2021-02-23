@@ -14,8 +14,7 @@ export default function HomePage(navData) {
     
  <Image style={styles.image} source={require("../../assets/giphy.gif")} />
  <Text style={styles.descriptionText}> Are you a Tech Enthusiast?
-  Then, Kermit is the perfect
- solution for you!
+  Then, Kermit is for you!
        </Text>
       
  <View style={styles.registerContainer}>

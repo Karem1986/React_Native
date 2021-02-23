@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, ImageBackground} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
 import {useSelector, useDispatch} from 'react-redux'
 import  * as resourcesAction from '../Redux/actions/resourcesAction'
+
 const NewsDetailsScreen =  props => {
 
     const dispatch = useDispatch()
